@@ -82,7 +82,6 @@ let add = (a: number, b: number, c?: number | string) => {
   console.log(a + b);
   console.log(c);
 };
-
 add(17, 67);
 
 //type aliases - define types to avoid repetition or parameter overspilling
