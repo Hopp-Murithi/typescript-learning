@@ -95,3 +95,11 @@ invoices.map(inv => {
     console.log(inv.format());
 });
 console.log(invoices);
+let registration = {
+    name: "Sam",
+    gender: "male",
+    age: 55,
+    language(speak) {
+        console.log(speak);
+    }
+};

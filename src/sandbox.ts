@@ -144,3 +144,21 @@ console.log(inv.format())
   )
 
   console.log(invoices);
+
+  
+//working with interfaces
+  interface person {
+    name: string,
+    gender: string,
+    age: number,
+    language(a:string):void;
+  }
+
+  let registration: person ={
+    name:"Sam",
+    gender:"male",
+    age: 55,
+    language(speak:string) :void{
+      console.log(speak)
+    }
+  } 
