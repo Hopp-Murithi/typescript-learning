@@ -101,10 +101,47 @@ let getuser = (user: objWithNameAndId) => {
 
 let calc: (a: number, b: number, action: string) => number;
 
-calc = (numberOne:number, numberTwo: number , action: string) => {
-   if( action === "add"){
-    return numberOne + numberTwo
-   } else{
-    return numberOne - numberOne
-   }
+calc = (numberOne: number, numberTwo: number, action: string) => {
+  if (action === "add") {
+    return numberOne + numberTwo;
+  } else {
+    return numberOne - numberOne;
+  }
 };
+
+//classes in ts
+
+class Invoice {
+  client: string;
+  details: string;
+  amount: number;
+
+  constructor(c: string, d: string, a: number) {
+    this.client = c;
+    this.details = d;
+    this.amount = a;
+  }
+
+  format() {
+    return `${this.client} owes Ksh${this.amount} for ${this.details}`;
+  }
+}
+
+const invOne = new Invoice("Murithi", "website work", 2500);
+const invTwo = new Invoice("Hope", "System design work", 250000);
+
+console.log(invOne, invTwo);
+
+let invoices: Invoice[] = []; //instantiate invoices to take an array. if you pass string or number it will throw an error
+
+invoices.push(invOne);
+invoices.push(invTwo);
+
+console.log(invoices);
+
+invoices.map(inv =>{
+console.log(inv.format())
+}
+  )
+
+  console.log(invoices);
