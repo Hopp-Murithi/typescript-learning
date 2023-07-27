@@ -138,27 +138,57 @@ invoices.push(invTwo);
 
 console.log(invoices);
 
-invoices.map(inv =>{
-console.log(inv.format())
+invoices.map((inv) => {
+  console.log(inv.format());
+});
+
+console.log(invoices);
+
+//working with interfaces  define the shape of an object
+interface person {
+  name: string;
+  gender: string;
+  age: number;
+  language(a: string): void;
 }
-  )
 
-  console.log(invoices);
+let registration: person = {
+  name: "Sam",
+  gender: "male",
+  age: 55,
+  language(speak: string): void {
+    console.log(speak);
+  },
+};
 
-  
-//working with interfaces
-  interface person {
-    name: string,
-    gender: string,
-    age: number,
-    language(a:string):void;
-  }
+//generics - used when you have a repetitive block of code that should take any type
 
-  let registration: person ={
-    name:"Sam",
-    gender:"male",
-    age: 55,
-    language(speak:string) :void{
-      console.log(speak)
-    }
-  } 
+const payments = <T extends { name: string }>(obj: T) => {
+  let addUid = Math.floor(Math.random() * 100);
+  return { ...obj, Uid: addUid };
+};
+console.log(
+  payments({
+    name: "Shaun",
+    age: 24
+  })
+);
+
+//interface with generic in action
+interface Resource<T> {
+  name: string;
+  age: number;
+  payment: T;
+}
+
+let docThree: Resource<object> = {
+  name: "Sam Smith",
+  age: 24,
+  payment: {
+    amount: 2600,
+    balance: 7500,
+    status: "completed",
+  },
+};
+
+console.log(docThree);

@@ -91,7 +91,7 @@ let invoices = []; //instantiate invoices to take an array. if you pass string o
 invoices.push(invOne);
 invoices.push(invTwo);
 console.log(invoices);
-invoices.map(inv => {
+invoices.map((inv) => {
     console.log(inv.format());
 });
 console.log(invoices);
@@ -101,5 +101,24 @@ let registration = {
     age: 55,
     language(speak) {
         console.log(speak);
-    }
+    },
 };
+//generics - used when you have a repetitive block of code that should take any type
+const payments = (obj) => {
+    let addUid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { Uid: addUid });
+};
+console.log(payments({
+    name: "Shaun",
+    age: 24
+}));
+let docThree = {
+    name: "Sam Smith",
+    age: 24,
+    payment: {
+        amount: 2600,
+        balance: 7500,
+        status: "completed",
+    },
+};
+console.log(docThree);
