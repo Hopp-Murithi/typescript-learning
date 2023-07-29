@@ -17,11 +17,14 @@ const list = new ListTemplate(ul);
 form.addEventListener("submit", (e: Event) => {
   e.preventDefault(); //prevents page from refreshing when we submit a form
 
+  let values: [string, string, number]; // use of tuples
+  values = [tofrom.value, details.value, amount.valueAsNumber];
+
   let doc: HasFormatter;
   if (type.value === "invoice") {
-    doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+    doc = new Invoice(...values);
   } else {
-    doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+    doc = new Payment(...values);
   }
 
   list.render(doc, type.value, "end");
